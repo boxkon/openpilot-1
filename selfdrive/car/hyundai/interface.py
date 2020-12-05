@@ -267,6 +267,11 @@ class CarInterface(CarInterfaceBase):
     #Auto Hold trigger
     if self.CS.brakeHold:
       events.add(EventName.brakeHold)
+
+    # Lead car departure detection alert
+    if (self.CS.lead_distance > 5.) and (self.CS.clu11["CF_Clu_Vanz"] < 0.):
+      events.add(EventName.leadVehDep)
+
     if self.CC.longcontrol and self.CS.cruise_unavail:
       events.add(EventName.brakeUnavailable)
     #if abs(ret.steeringAngle) > 90. and EventName.steerTempUnavailable not in events.events:

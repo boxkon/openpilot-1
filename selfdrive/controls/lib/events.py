@@ -320,7 +320,19 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
 
   # ********** events only containing alerts that display while engaged **********
   EventName.brakeHold: {
-    ET.NO_ENTRY: NoEntryAlert("Brake Hold Active"),
+    ET.PERMANENT: Alert(
+      "Auto Hold Active",
+      "Auto hold has been activated",
+      AlertStatus.userPrompt, AlertSize.mid,
+      Priority.LOW, VisualAlert.none, AudibleAlert.none, 1., 1., 15.),
+  },
+  # Lead car departure detect alert
+  EventName.leadVehDep: {
+    ET.PERMANENT: Alert(
+      "Lead Vehicle Departure",
+      "In front of vehicle has started",
+      AlertStatus.userPrompt, AlertSize.mid,
+      Priority.MID, VisualAlert.none, AudibleAlert.none, 1., 1., 1.),
   },
 
   EventName.gasPressed: {
@@ -510,10 +522,10 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
     ET.USER_DISABLE: EngagementAlert(AudibleAlert.chimeDisengage),
   },
 
-  EventName.brakeHold: {
-    ET.USER_DISABLE: EngagementAlert(AudibleAlert.chimeDisengage),
-    ET.NO_ENTRY: NoEntryAlert("Brake Hold Active"),
-  },
+  #EventName.brakeHold: {
+  #  ET.USER_DISABLE: EngagementAlert(AudibleAlert.chimeDisengage),
+  #  ET.NO_ENTRY: NoEntryAlert("Brake Hold Active"),
+  #},
 
   EventName.parkBrake: {
     ET.USER_DISABLE: EngagementAlert(AudibleAlert.chimeDisengage),
