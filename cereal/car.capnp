@@ -126,7 +126,7 @@ struct CarEvent @0x9b1657f34caf3ad3 {
     sccSmootherStatus @97;
 
     # lead car departure detect alert
-    leadVehdep @98;
+    leadVehDep @98;
   }
 }
 
