@@ -47,7 +47,7 @@ struct CarEvent @0x9b1657f34caf3ad3 {
     pcmDisable @24;
     noTarget @25;
     radarFault @26;
-    brakeHold @28;
+    brakeHold @28; # auto hold status
     parkBrake @29;
     manualRestart @30;
     lowSpeedLockout @31;
@@ -124,9 +124,6 @@ struct CarEvent @0x9b1657f34caf3ad3 {
 
     # scc smoother
     sccSmootherStatus @97;
-
-    # Auto hold status
-    brakeHold @98;
   }
 }
 
