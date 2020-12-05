@@ -319,6 +319,9 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
   },
 
   # ********** events only containing alerts that display while engaged **********
+  EventName.brakeHold: {
+    ET.NO_ENTRY: NoEntryAlert("Brake Hold Active"),
+  },
 
   EventName.gasPressed: {
     ET.PRE_ENABLE: Alert(

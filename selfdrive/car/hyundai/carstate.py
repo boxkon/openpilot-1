@@ -92,6 +92,9 @@ class CarState(CarStateBase):
     self.cruise_main_button = cp.vl["CLU11"]["CF_Clu_CruiseSwMain"]
     self.cruise_buttons = cp.vl["CLU11"]["CF_Clu_CruiseSwState"]
 
+    # Auto Hold status
+    self.brakeHold = (cp.vl["ESP11"]['AVH_STAT'] == 1)
+
     # TODO: Find brake pressure
     ret.brake = 0
     ret.brakePressed = cp.vl["TCS13"]['DriverBraking'] != 0
@@ -217,6 +220,8 @@ class CarState(CarStateBase):
       ("WHL_SPD_FR", "WHL_SPD11", 0),
       ("WHL_SPD_RL", "WHL_SPD11", 0),
       ("WHL_SPD_RR", "WHL_SPD11", 0),
+
+      ("AVH_STAT", "ESP11", 0),
 
       ("YAW_RATE", "ESP12", 0),
 

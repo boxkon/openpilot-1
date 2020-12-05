@@ -264,7 +264,9 @@ class CarInterface(CarInterfaceBase):
     ret.buttonEvents = buttonEvents
 
     events = self.create_common_events(ret)
-
+    #Auto Hold trigger
+    if self.CS.brakeHold:
+      events.add(EventName.brakeHold)
     if self.CC.longcontrol and self.CS.cruise_unavail:
       events.add(EventName.brakeUnavailable)
     #if abs(ret.steeringAngle) > 90. and EventName.steerTempUnavailable not in events.events:

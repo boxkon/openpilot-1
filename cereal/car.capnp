@@ -124,6 +124,9 @@ struct CarEvent @0x9b1657f34caf3ad3 {
 
     # scc smoother
     sccSmootherStatus @97;
+
+    # Auto hold status
+    brakeHold @98;
   }
 }
 
