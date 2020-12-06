@@ -324,7 +324,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
       "Auto Hold Active",
       "Auto hold has been activated",
       AlertStatus.userPrompt, AlertSize.mid,
-      Priority.LOW, VisualAlert.none, AudibleAlert.none, 1., 1., 15.),
+      Priority.LOW, VisualAlert.none, AudibleAlert.none, 0., 0., .1),
   },
   # Lead car departure detect alert
   EventName.leadVehDep: {
@@ -332,7 +332,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
       "Lead Vehicle Departure",
       "In front of vehicle has started",
       AlertStatus.userPrompt, AlertSize.mid,
-      Priority.MID, VisualAlert.none, AudibleAlert.none, 1., 1., 1.),
+      Priority.MID, VisualAlert.none, AudibleAlert.none, 1., 1., 2.),
   },
 
   EventName.gasPressed: {

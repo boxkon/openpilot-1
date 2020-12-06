@@ -269,7 +269,7 @@ class CarInterface(CarInterfaceBase):
       events.add(EventName.brakeHold)
 
     # Lead car departure detection alert
-    if (self.CS.lead_distance > 5.) and (self.CS.clu11["CF_Clu_Vanz"] < 0.):
+    if (self.CS.lead_distance > 3.) and abs(ret.vEgo < 1.):
       events.add(EventName.leadVehDep)
 
     if self.CC.longcontrol and self.CS.cruise_unavail:
