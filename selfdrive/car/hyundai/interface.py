@@ -16,6 +16,7 @@ class CarInterface(CarInterfaceBase):
     super().__init__(CP, CarController, CarState)
     self.cp2 = self.CS.get_can2_parser(CP)
     self.mad_mode_enabled = Params().get('MadModeEnabled') == b'1'
+    self.last_lead_distances = 0 # for lead car departure alert
 
   @staticmethod
   def compute_gb(accel, speed):
@@ -269,8 +270,14 @@ class CarInterface(CarInterfaceBase):
       events.add(EventName.brakeHold)
 
     # Lead car departure detection alert
-    if (self.CS.lead_distance > 3.) and abs(ret.vEgo < 1.):
-      events.add(EventName.leadVehDep)
+    if self.last_lead_distances == 0 and ret.vEgo < 0.:
+      self.last_lead_distances = self.CS.lead_distance
+      if abs(self.CS.lead_distance) - self.last_lead_distances > 3.:
+        events.add(EventName.leadVehDep)
+
+    # reset lead distnce after the car starts moving
+    elif self.last_lead_distances != 0:
+      self.last_lead_distances = 0
 
     if self.CC.longcontrol and self.CS.cruise_unavail:
       events.add(EventName.brakeUnavailable)

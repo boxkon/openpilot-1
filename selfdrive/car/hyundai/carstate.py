@@ -306,6 +306,7 @@ class CarState(CarStateBase):
       ("SCCDrvModeRValue", "SCC13", 2),
       ("SCC_Equip", "SCC13", 1),
       ("AebDrvSetStatus", "SCC13", 0),
+      ("Lead_Veh_Dep_Alert_USM", "SCC13", 0),
 
       ("JerkUpperLimit", "SCC14", 0),
       ("JerkLowerLimit", "SCC14", 0),

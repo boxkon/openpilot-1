@@ -332,7 +332,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
       "Lead Vehicle Departure",
       "In front of vehicle has started",
       AlertStatus.userPrompt, AlertSize.mid,
-      Priority.MID, VisualAlert.none, AudibleAlert.none, 1., 1., 2.),
+      Priority.MID, VisualAlert.none, AudibleAlert.chimeDing, 1., 2., 2.),
   },
 
   EventName.gasPressed: {
