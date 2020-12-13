@@ -270,14 +270,11 @@ class CarInterface(CarInterfaceBase):
       events.add(EventName.brakeHold)
 
     # Lead car departure detection alert
-    if self.last_lead_distances == 0 and ret.vEgo < 0.:
+    if self.last_lead_distances == 0 and ret.vEgo < 0. and self.CS.gear not in (0, 7):
       self.last_lead_distances = self.CS.lead_distance
       if abs(self.CS.lead_distance) - self.last_lead_distances > 3.:
         events.add(EventName.leadVehDep)
-
-    # reset lead distnce after the car starts moving
-    elif self.last_lead_distances != 0:
-      self.last_lead_distances = 0
+        self.last_lead_distances = 0
 
     if self.CC.longcontrol and self.CS.cruise_unavail:
       events.add(EventName.brakeUnavailable)
