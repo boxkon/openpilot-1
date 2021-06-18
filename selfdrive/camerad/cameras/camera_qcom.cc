@@ -708,7 +708,7 @@ static void camera_open(CameraState *s, bool is_road_cam) {
   struct v4l2_event_subscription sub = {};
 
   struct msm_actuator_cfg_data actuator_cfg_data = {};
-  struct msm_ois_cfg_data msm_ois_cfg_data = {};
+  struct msm_ois_cfg_data ois_cfg_data = {};
 
   // open devices
   const char *sensor_dev;
